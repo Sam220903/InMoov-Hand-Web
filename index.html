@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumAcad | InMoov Hand Controller</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <span id="logo" class="logo">LumAcad</span>
+        <h2>Proyecto Mano InMoov</h2>
+    </header>
+
+    <main>
+        <h1>Controlador Mano InMoov</h1>
+        <p>Utiliza tu mano para probar diferentes posiciones para los dedos de la mano</p>
+
+        <div class="main-container">
+
+            
+            <div id="liveView" class="videoView">
+                <h3>Control en tiempo real</h3>
+                <button id="webcamButton" class="opc-button">
+                    Abrir cámara
+                </button>
+                <div class="videoContainer">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas class="output_canvas" id="output_canvas" width="1280" height="720" style="position: absolute; left: 0px; top: 0px;"></canvas>
+                </div>
+            </div>
+
+            <div id="options" class="options">
+                <h3>Opciones</h3>
+                <button id="serialConnection" class="opc-button">
+                    Conectarse a puerto serial
+                </button>
+                <div class="gesture-data">
+                    <h3>Datos del reconocimiento</h3>
+                    <label for="raised_hand">Mano:</label>
+                    <p id='raised_hand' class="output"></p>
+                    <label for="gesture_output">Gesto reconocido:</label>
+                    <p id='gesture_output' class="output"></p>
+                    <label for="fingers_number">Dedos levantados:</label>
+                    <p id='fingers_number' class="output"></p>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script type="module" src="app.js"></script>
+</html>
