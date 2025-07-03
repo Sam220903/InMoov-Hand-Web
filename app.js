@@ -12,6 +12,21 @@ let webcamRunning = false;
 const videoHeight = "360px";
 const videoWidth = "480px";
 
+// Dictionary to map gesture names to their corresponding in Spanish names
+const gestureList = {
+  "None" : "-",
+  "Unknown" : "Desconocido",
+  "Closed_Fist": "Puño cerrado",
+  "Open_Palm": "Palma abierta",
+  "Pointing_Up": "Apuntando hacia arriba",
+  "Thumb_Down": "Pulgar abajo",
+  "Thumb_Up": "Pulgar arriba",
+  "Victory": "Victoria",
+  "ILoveYou": "Te quiero",
+  "Left" : "Derecha",
+  "Right" : "Izquierda",
+}
+
 // Before we can use HandLandmarker class we must wait for it to finish
 // loading. Machine Learning models can be large and take a moment to
 // get everything needed to run.
@@ -65,10 +80,11 @@ function enableCam(event) {
 
   if (webcamRunning === true) {
     webcamRunning = false;
-    enableWebcamButton.innerText = "ENABLE PREDICTIONS";
+    enableWebcamButton.innerText = "Habilitar reconocimiento";
+    
   } else {
     webcamRunning = true;
-    enableWebcamButton.innerText = "DISABLE PREDICTIONS";
+    enableWebcamButton.innerText = "Deshabilitar reconocimiento";
   }
 
   // getUsermedia parameters.
@@ -201,8 +217,8 @@ async function predictWebcam() {
     }
     
     // Mostrar información del gesto y estados de dedos
-    raisedHandOutput.innerText = `${handedness}`;
-    gestureOutput.innerText = `${categoryName}`;
+    raisedHandOutput.innerText = `${gestureList[handedness] || handedness}`;
+    gestureOutput.innerText = `${gestureList[categoryName] || categoryName}`;
     fingersNumberOutput.innerText = `${fingerStates.reduce((sum, state) => sum + state, 0)}`;
     console.log("Estados de los dedos:", [fingerStates.join(", ")]);
    }
