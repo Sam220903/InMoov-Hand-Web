@@ -102,8 +102,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  max-width: 640px;
+  width: 70%;
   gap: 1em;
   min-height: 500px;
 }
@@ -112,8 +111,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  max-width: 640px;
+  width: 30%;
   gap: 1em;
   min-height: 500px;
 }
